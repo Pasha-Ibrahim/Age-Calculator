@@ -1,4 +1,4 @@
-/* Global reset və font */
+/* Global reset */
 * {
     margin: 0;
     padding: 0;
@@ -6,176 +6,93 @@
     font-family: 'Poppins', sans-serif;
 }
 
-/* Header və background */
-.header {
-    width: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
+body {
     background: linear-gradient(135deg, #4203a9, #90bafc);
     color: #fff;
-}
-
-/* Container */
-.container {
-    max-width: 1200px;
-    margin: auto;
-}
-
-/* Calculator başlıq */
-.calculator {
-    margin: auto;
-    width: 200px;
-    padding: 35px;
     display: flex;
     justify-content: center;
     align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 400px;
+    width: 90%;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
 }
 
 .calculator h1 {
-    font-size: 60px;
-    text-align: center;
+    font-size: 40px;
 }
 
 .calculator h1 span {
     color: #ffff76;
 }
 
-/* Input və button */
 .input-box {
-    max-width: 330px;
-    margin: auto;
-    padding: 35px;
-    gap: 5px;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.3);
+    position: relative;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+    margin: 25px 0;
 }
 
 .input-box input {
     padding: 16px 20px;
-    font-size: 10px;
+    font-size: 16px;
     border-radius: 5px;
+    border: none;
     outline: none;
-    cursor: pointer;
-    flex: 1;
+}
+
+.input-box label {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+    pointer-events: none;
+    transition: 0.2s;
+}
+
+.input-box input:focus+label,
+.input-box input:not(:placeholder-shown)+label {
+    display: none;
 }
 
 .input-box button {
-    background: #ffff76;
-    border: 0;
-    outline: 0;
-    padding: 15px 30px;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
     border-radius: 5px;
-    font-weight: 500;
+    background: #ffff76;
     color: #333;
     cursor: pointer;
-    transition: 0.3s;
+    font-weight: 500;
 }
 
 .input-box button:hover {
     background: #f0f06e;
 }
 
-/* Result bölməsi */
 .result {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 50px;
     font-size: 20px;
-    text-align: center;
-    padding: 0 10px;
 }
 
-#result span {
+.result span {
     color: #ffff76;
-}
-
-/* Flatpickr calendar */
-.flatpickr-calendar {
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
 }
 
 /* Mobile responsive */
 @media (max-width: 480px) {
-    .input-box {
-        flex-direction: column;
-        gap: 15px;
-        padding: 20px;
-    }
-
-    .input-box input,
-    .input-box button {
-        width: 100%;
-        font-size: 16px;
-    }
-
     .calculator h1 {
-        font-size: 40px;
+        font-size: 30px;
     }
 
     .result {
         font-size: 18px;
-    }
-
-    .flatpickr-calendar {
-        font-size: 16px;
-    }
-}
-
-/* Tablet-lər (≤1024px) üçün */
-@media (max-width: 1024px) {
-    .input-box {
-        flex-direction: column;
-        /* input və button alt-üst */
-        gap: 15px;
-        padding: 25px;
-    }
-
-    .input-box input,
-    .input-box button {
-        width: 100%;
-        font-size: 16px;
-        /* oxunaqlı font */
-    }
-
-    .calculator h1 {
-        font-size: 50px;
-        /* başlıq daha kiçik, ekran sıxışmır */
-    }
-
-    .result {
-        font-size: 19px;
-    }
-
-    .flatpickr-calendar {
-        font-size: 16px;
-    }
-}
-
-@media (max-width: 1280px) {
-    .input-box {
-        flex-direction: column;
-        /* input/button alt-üst */
-        width: 90%;
-        padding: 20px;
-    }
-
-    .input-box input,
-    .input-box button {
-        width: 100%;
-    }
-
-    .calculator h1 {
-        font-size: 50px;
-    }
-
-    .result {
-        font-size: 19px;
     }
 }

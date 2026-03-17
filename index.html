@@ -15,7 +15,8 @@
         </div>
 
         <div class="input-box">
-          <input type="text" id="date" placeholder="Enter your birthday" />
+          <input type="text" id="date" placeholder=" " />
+          <label for="date">Enter your birthday</label>
           <button onclick="calculateAge()">Calculate</button>
         </div>
 
@@ -25,19 +26,17 @@
       </div>
     </div>
 
-    <!-- Flatpickr JS -->
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
-      // Flatpickr həm desktop həm mobil üçün
       flatpickr("#date", {
         dateFormat: "m/d/Y",
         maxDate: "today",
         allowInput: true,
-        disableMobile: false // mobil cihazlarda da görünəcək
+        disableMobile: false
       });
 
-      let userInput = document.getElementById("date");
-      let result = document.getElementById("result");
+      const userInput = document.getElementById("date");
+      const result = document.getElementById("result");
 
       function calculateAge() {
         if(!userInput.value) {
@@ -45,7 +44,6 @@
           return;
         }
 
-        // Tarixi MM/DD/YYYY formatında götürürük
         let parts = userInput.value.split('/');
         let m1 = parseInt(parts[0], 10);
         let d1 = parseInt(parts[1], 10);
@@ -64,7 +62,6 @@
           m3--;
           d3 += getDaysInMonth(y2, m2 - 1);
         }
-
         if(m3 < 0) {
           y3--;
           m3 += 12;
