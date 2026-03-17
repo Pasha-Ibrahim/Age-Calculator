@@ -56,11 +56,12 @@
 .input-box input {
     padding: 12px 25px;
     outline: 0;
-    font-size: 20px;
+    font-size: 15px;
     border-radius: 5px;
     position: relative;
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .input-box button {
