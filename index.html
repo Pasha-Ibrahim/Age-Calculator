@@ -15,7 +15,7 @@
         </div>
 
         <div class="input-box">
-          <input type="text" id="date" placeholder="MM/DD/YYYY" />
+          <input type="date" id="date" placeholder="MM/DD/YYYY" />
           <button onclick="calculateAge()">Calculate</button>
         </div>
 
@@ -29,11 +29,13 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
       // Flatpickr ilə input formatını təyin edirik
-      flatpickr("#date", {
-        dateFormat: "m/d/Y",
-        maxDate: "today",
-        allowInput: true
-      });
+     if(window.innerWidth > 768) { // Desktop üçün Flatpickr aktiv et
+  flatpickr("#date", {
+    dateFormat: "m/d/Y",
+    maxDate: "today",
+    allowInput: true
+  });
+}
 
       let userInput = document.getElementById("date");
       let result = document.getElementById("result");
