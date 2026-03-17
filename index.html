@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Age Calculator</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="index.css">
   </head>
   <body>
     <div class="header">
@@ -15,7 +15,7 @@
         </div>
 
         <div class="input-box">
-          <input type="date" id="date" placeholder="enter your birthday" />
+          <input type="text" id="date" placeholder="Enter your birthday" />
           <button onclick="calculateAge()">Calculate</button>
         </div>
 
@@ -28,11 +28,12 @@
     <!-- Flatpickr JS -->
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
-      // Flatpickr ilə input formatını təyin edirik
+      // Flatpickr həm desktop həm mobil üçün
       flatpickr("#date", {
-        dateFormat: "enter your birthday",
+        dateFormat: "m/d/Y",
         maxDate: "today",
-        allowInput: true
+        allowInput: true,
+        disableMobile: false // mobil cihazlarda da görünəcək
       });
 
       let userInput = document.getElementById("date");
@@ -44,13 +45,11 @@
           return;
         }
 
-        // Flatpickr formatı MM/DD/YYYY olduğu üçün split edirik
+        // Tarixi MM/DD/YYYY formatında götürürük
         let parts = userInput.value.split('/');
         let m1 = parseInt(parts[0], 10);
         let d1 = parseInt(parts[1], 10);
         let y1 = parseInt(parts[2], 10);
-
-        let birthDate = new Date(y1, m1 - 1, d1);
 
         let today = new Date();
         let d2 = today.getDate();
